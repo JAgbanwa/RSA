@@ -1,0 +1,47 @@
+###########################################################################
+# CADO-NFS parameters for RSA-270, used for the stages gsieve does not do:
+# polynomial selection, factor-base generation, filtering, linear algebra and
+# square root. Sieving bounds match params/rsa270.env so that relations made
+# by gsieve can be imported (tasks.sieve.import).
+#
+# Based on cado-nfs/parameters/factor/params.c270, with the sieving bounds
+# replaced by the gsieve starting point. Test-sieve before committing.
+###########################################################################
+
+name = rsa270
+N = 233108530344407544527637656910680524145619812480305449042948611968495918245135782867888369318577116418213919268572658314913060672626911354027609793166341626693946596196427744273886601876896313468704059066746903123910748277606548649151920812699309766587514735456594993207
+
+###########################################################################
+# Polynomial selection (CPU, from CADO's c270 settings)
+###########################################################################
+tasks.polyselect.degree = 6
+tasks.polyselect.P = 10000000
+tasks.polyselect.admax = 1e8
+tasks.polyselect.adrange = 5e3
+tasks.polyselect.incr = 60
+tasks.polyselect.nq = 1296
+tasks.polyselect.nrkeep = 200
+tasks.wutimeout = 24000
+
+###########################################################################
+# Sieving bounds (must equal params/rsa270.env)
+###########################################################################
+tasks.lim0 = 2147483647
+tasks.lim1 = 2147483647
+tasks.lpb0 = 37
+tasks.lpb1 = 38
+tasks.sieve.mfb0 = 74
+tasks.sieve.mfb1 = 111
+tasks.I = 17
+tasks.qmin = 1000000000
+tasks.sieve.qrange = 20000
+
+###########################################################################
+# Filtering and linear algebra (from CADO's c270 settings)
+###########################################################################
+tasks.filter.purge.keep = 160
+tasks.filter.target_density = 170.0
+tasks.linalg.bwc.interleaving = 0
+tasks.linalg.m = 64
+tasks.linalg.n = 64
+tasks.linalg.characters.nchar = 50

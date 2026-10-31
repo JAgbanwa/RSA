@@ -1,0 +1,10 @@
+# build outputs
+build/
+gsieve
+gsieve-cpu
+tests/test_ecm
+tests/*.rels
+# generated data if WORK_ROOT is pointed inside the checkout
+work/
+relations/
+__pycache__/
